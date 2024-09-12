@@ -29,9 +29,9 @@ namespace WebAPI.Controllers
 
         // GET api/<MusicoController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            return Ok(_musicoService.GetById(id));
         }
 
         // POST api/<MusicoController>

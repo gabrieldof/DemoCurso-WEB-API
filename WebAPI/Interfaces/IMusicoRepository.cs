@@ -2,9 +2,11 @@
 
 namespace WebAPI.Interfaces
 {
-    public interface IMusicoService
+    public interface IMusicoRepository
     {
-        public List<Musico> Get();
+
+        List<Musico> Get();
+
         public Musico GetById(int id);
     }
 }

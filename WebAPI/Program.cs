@@ -1,6 +1,9 @@
 using WebAPI.Interfaces;
 using WebAPI.Entities;
 using WebAPI.Services;
+using WebAPI.Data;
+using Microsoft.EntityFrameworkCore;
+using WebAPI.Repositositories;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +15,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext <ApplicationContext> (dbContextoOptions => dbContextoOptions.UseSqlite(
+builder.Configuration["ConnectionStrings:DBConnectionString"]));
+
 
 builder.Services.AddScoped<IMusicoService, MusicoService>();
+builder.Services.AddScoped <IMusicoRepository, MusicoRepository>();
 
 var app = builder.Build();
 
