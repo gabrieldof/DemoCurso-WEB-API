@@ -36,20 +36,23 @@ namespace WebAPI.Controllers
 
         // POST api/<MusicoController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Musico musico)
         {
+            return Ok(_musicoService.Add(musico));
         }
 
         // PUT api/<MusicoController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Musico musico)
         {
+            return Ok(_musicoService.Update(musico));
         }
 
         // DELETE api/<MusicoController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            return Ok(_musicoService.Delete(id));
         }
     }
 }

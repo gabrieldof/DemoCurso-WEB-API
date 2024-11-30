@@ -1,4 +1,5 @@
-﻿using WebAPI.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using WebAPI.Data;
 using WebAPI.Entities;
 using WebAPI.Interfaces;
 
@@ -29,11 +30,24 @@ namespace WebAPI.Services
             return _repository.Get();
         }
 
-
         public Musico GetById(int id)
 
         {
             return _repository.GetById(id);
+        }
+
+        public Musico Add(Musico musico)
+        {
+            return _repository.Add(musico);
+        }
+        public int Update(Musico musico)
+        {
+            return _repository.Update(musico);
+        }
+        public int Delete(int id)
+        {
+            var musico  = _repository.GetById(id);
+            return _repository.Delete(musico);
         }
     }
 }

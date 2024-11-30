@@ -8,5 +8,13 @@ namespace WebAPI.Interfaces
         List<Musico> Get();
 
         public Musico GetById(int id);
+
+        public Musico Add(Musico musico);
+
+        public int Update(Musico musico);
+
+        public int Delete(Musico musico);
+
+
     }
 }
